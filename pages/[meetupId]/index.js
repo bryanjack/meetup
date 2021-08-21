@@ -8,10 +8,7 @@ function MeetupDetails(props) {
         <Fragment>
             <Head>
                 <title>Add Meetups</title>
-                <meta
-                    name={props.title}
-                    content={props.description}
-                ></meta>
+                <meta name={props.title} content={props.description}></meta>
             </Head>
             <MeetupDetail
                 title={props.title}
@@ -24,7 +21,7 @@ function MeetupDetails(props) {
 }
 export async function getStaticPaths() {
     const client = await MongoClient.connect(
-        "mongodb://127.0.0.1:27017/meetups?readPreference=primary&serverSelectionTimeoutMS=2000&appname=MongoDB%20Compass&directConnection=true&ssl=false"
+        "mongodb+srv://bryan:BryanAwesome@cluster0.n5put.mongodb.net/meetup?retryWrites=true&w=majority"
     );
     const db = client.db();
     const meetupsCollection = db.collection("meetups-col");
@@ -44,7 +41,7 @@ export async function getStaticProps(context) {
 
     // fetch data for a single meetup
     const client = await MongoClient.connect(
-        "mongodb://127.0.0.1:27017/meetups?readPreference=primary&serverSelectionTimeoutMS=2000&appname=MongoDB%20Compass&directConnection=true&ssl=false"
+        "mongodb+srv://bryan:BryanAwesome@cluster0.n5put.mongodb.net/meetup?retryWrites=true&w=majority"
     );
     const db = client.db();
     const meetupsCollection = db.collection("meetups-col");

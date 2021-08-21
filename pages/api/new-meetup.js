@@ -7,7 +7,8 @@ async function handler(req, res) {
         const data = req.body;
 
         // const { title, image, address, description } = data;
-        const client = await MongoClient.connect('mongodb://127.0.0.1:27017/meetups?readPreference=primary&serverSelectionTimeoutMS=2000&appname=MongoDB%20Compass&directConnection=true&ssl=false')
+        // const client = await MongoClient.connect('mongodb://127.0.0.1:27017/meetups?readPreference=primary&serverSelectionTimeoutMS=2000&appname=MongoDB%20Compass&directConnection=true&ssl=false')
+        const client = await MongoClient.connect('mongodb+srv://bryan:BryanAwesome@cluster0.n5put.mongodb.net/meetup?retryWrites=true&w=majority')
         const db = client.db()
         const meetupsCollection = db.collection('meetups-col')
         const result = await meetupsCollection.insertOne({data})

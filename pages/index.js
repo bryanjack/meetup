@@ -51,7 +51,7 @@ function HomePage(props) {
 export async function getStaticProps() {
     // fetch data from API
     const client = await MongoClient.connect(
-        "mongodb://127.0.0.1:27017/meetups?readPreference=primary&serverSelectionTimeoutMS=2000&appname=MongoDB%20Compass&directConnection=true&ssl=false"
+        "mongodb+srv://bryan:BryanAwesome@cluster0.n5put.mongodb.net/meetup?retryWrites=true&w=majority"
     );
     const db = client.db();
     const meetupsCollection = db.collection("meetups-col");
